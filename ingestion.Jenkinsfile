@@ -23,7 +23,7 @@ pipeline {
                 container('builder') {
                     script {
                         sh '''
-                            pip install -r scripts/requirements.txt
+                            pip install -r requirements.txt
                             pip install chromadb>=0.4.0
                         '''
                     }
