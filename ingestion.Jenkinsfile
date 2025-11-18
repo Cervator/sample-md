@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'python'  // Python build agent (runs in same k8s cluster)
+        label 'python-ai'  // Python build agent (runs in same k8s cluster)
     }
     
     environment {
@@ -15,19 +15,6 @@ pipeline {
         stage('Checkout') {
             steps {
                 checkout scm
-            }
-        }
-        
-        stage('Install Dependencies') {
-            steps {
-                container('builder') {
-                    script {
-                        sh '''
-                            pip install -r scripts/requirements.txt
-                            pip install chromadb>=0.4.0
-                        '''
-                    }
-                }
             }
         }
         
